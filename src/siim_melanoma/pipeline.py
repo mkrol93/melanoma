@@ -26,36 +26,43 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Application entry point."""
-from pathlib import Path
-from typing import Dict
+"""Construction of the master pipeline.
+"""
 
-from kedro.context import KedroContext, load_context
+from typing import Dict
 from kedro.pipeline import Pipeline
 
-from siim_malanoma.pipeline import create_pipelines
 
 
-class ProjectContext(KedroContext):
-    """Users can override the remaining methods from the parent class here,
-    or create new ones (e.g. as required by plugins)
+###########################################################################
+# Here you can find an example pipeline, made of two modular pipelines.
+#
+# Delete this when you start working on your own Kedro project as
+# well as pipelines/data_science AND pipelines/data_engineering
+# -------------------------------------------------------------------------
+
+from siim_melanoma.pipelines import data_engineering as de
+from siim_melanoma.pipelines import data_science as ds
+
+
+def create_pipelines(**kwargs) -> Dict[str, Pipeline]:
+    """Create the project's pipeline.
+
+    Args:
+        kwargs: Ignore any additional arguments added in the future.
+
+    Returns:
+        A mapping from a pipeline name to a ``Pipeline`` object.
+
     """
 
-    project_name = "Melanoma"
-    project_version = "0.15.9"
 
-    def _get_pipelines(self) -> Dict[str, Pipeline]:
-        return create_pipelines()
+    data_engineering_pipeline = de.create_pipeline()
+    data_science_pipeline = ds.create_pipeline()
 
+    return {
+        "de": data_engineering_pipeline,
+        "ds": data_science_pipeline,
+        "__default__": data_engineering_pipeline + data_science_pipeline,
+    }
 
-def run_package():
-    # entry point for running pip-install projects
-    # using `<project_package>` command
-    project_context = load_context(Path.cwd())
-    project_context.run()
-
-
-if __name__ == "__main__":
-    # entry point for running pip-installed projects
-    # using `python -m <project_package>.run` command
-    run_package()

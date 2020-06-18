@@ -49,9 +49,7 @@ example_iris_data:
 
 
 test_raw:
-  type: siim_melanoma.io.datasets.image_dataset.ImageDataSet
-  filepath: /home/michal/Documents/kaggle_projects/melanoma/data/01_raw/test_image_raw
-
-train_raw:
-  type: siim_melanoma.io.datasets.image_dataset.ImageDataSet
-  filepath: /home/michal/Documents/kaggle_projects/melanoma/data/01_raw/test_image_raw
+  type: PartitionedDataSet
+  dataset: kedro_pokemon.io.datasets.image_dataset.ImageDataSet
+  path: /home/michal/Documents/kaggle_projects/melanoma/data/01_raw/test_image_raw
+  filename_suffix: ".jpg"
