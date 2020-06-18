@@ -29,7 +29,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# siim_malanoma documentation build
+# siim_melanoma documentation build
 # configuration file, created by sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its
@@ -54,7 +54,7 @@ from siim_malanoma import __version__ as release
 
 # -- Project information -----------------------------------------------------
 
-project = "siim_malanoma"
+project = "siim_melanoma"
 copyright = "2020, QuantumBlack Visual Analytics Limited"
 author = "QuantumBlack"
 
@@ -177,8 +177,8 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        "siim_malanoma.tex",
-        "siim_malanoma Documentation",
+        "siim_melanoma.tex",
+        "siim_melanoma Documentation",
         "QuantumBlack",
         "manual",
     )
@@ -191,8 +191,8 @@ latex_documents = [
 man_pages = [
     (
         master_doc,
-        "siim_malanoma",
-        "siim_malanoma Documentation",
+        "siim_melanoma",
+        "siim_melanoma Documentation",
         [author],
         1,
     )
@@ -206,11 +206,11 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "siim_malanoma",
-        "siim_malanoma Documentation",
+        "siim_melanoma",
+        "siim_melanoma Documentation",
         author,
-        "siim_malanoma",
-        "Project siim_malanoma codebase.",
+        "siim_melanoma",
+        "Project siim_melanoma codebase.",
         "Data-Science",
     )
 ]
